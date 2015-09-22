@@ -191,7 +191,7 @@ def runtest(prob):
 
             s.set_bcs(vb=vb)
             o = s.solve_steady(True, True)
-            o.beam_moments()
+            o.beam_moments(txt=1)
             Mb = [o.Mout[i//2][-1][-(i%2)] for i in range(2*m.nc)]
             CompareArrays(Ma, Mb, 1.0e-4, table=True, namea='reference', nameb='PyFEM')
             m.show()
